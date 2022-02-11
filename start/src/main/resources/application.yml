@@ -1,0 +1,4 @@
+spring:
+  profiles:
+    # 默认使用dev环境配置，应用程序启动时指定环境配置文件java -jar --spring.profiles.active=dev
+    active: dev

@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: user-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/user-service?useUnicode=true&serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false&nullCatalogMeansCurrent=true
+    username: root
+    password: 2Ycfsjd..#
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        namespace: public
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+  main:
+    web-application-type: none
+
+dubbo:
+  scan:
+    base-packages: com.spotter.user
+  protocols:
+    dubbo:
+      name: dubbo
+      port: -1
+    rest:
+      name: rest
+      port: 9096
+      server: tomcat
+  registry:
+    address: spring-cloud://localhost
+  consumer:
+    timeout: 5000
+    check: false
+    retries: 0
+  cloud:
+    subscribed-services:
